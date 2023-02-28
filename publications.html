@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Publications</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css">
+  <link rel="stylesheet" href="tipsy.css" type="text/css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+  <script src="jquery.tipsy.js"></script>
+</head>
+
+<style>
+
+.title:link {
+  color: #000;
+  border-bottom: 1px dashed #aaa;
+}
+
+.title:visited {
+  color: #000;
+  border-bottom: 1px solid #aaa;
+}
+
+.title:hover {
+  color: #000;
+  border-bottom: 1px dashed #000;
+}
+
+.title:active {
+  color: #000;
+  border-bottom: 1px dashed #000;
+}
+
+/* Force-directed layout appearance */
+.link {
+  stroke: black;
+}
+
+.node {
+  fill: white;
+  stroke: black;
+  stroke-opacity: 0.25;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+/* Override some jQuery UI appearance */
+.ui-widget {
+	font-family: Garamond, serif;
+}
+
+.ui-widget select {
+  font-family: Garamond, serif;
+}
+
+.ui-state-default {
+	background: #FFFFFF !important;
+}
+
+.ui-state-hover {
+  background: #FFFFFF !important;
+}
+
+
+/* Adjust tab settings
+   Adapted from http://keith-wood.name/uiTabs.html */
+.tabs-nohdr {
+    padding: 0px;
+    background: none;
+    border-width: 0px;
+}
+
+.tabs-nohdr .ui-tabs-nav {
+    padding-left: 0px;
+    background: transparent;
+    border-width: 0px 0px 1px 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.tabs-nohdr .ui-tabs-panel {
+    border-width: 0px 1px 1px 1px;
+}
+
+</style>
+
+<body>
+
+<!-- Site navigation menu -->
+<ul class="nav">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="publications.html">Publications</a></li>
+  <li><a href="visualizations.html">Visualizations</a></li>
+<!--
+  <li><a href="software.html">Software</a>
+  <li><a href="teaching.html">Teaching</a>
+  <li><a href="classes.html">Classes</a>
+-->
+  <li><a href="pdfs/borlandCV.pdf">Curriculum Vitae</a></li>
+</ul>
+
+
+<!-- Header info -->
+<h1>Publications</h1>
+Click image for PDF or link
+<br>
+<br>
+
+
+<!-- jQuery UI tabs to hold table and force-directed layout -->
+<div id="tabs" class="tabs-nohdr">
+<ul>
+<li><a href="#listTab">List</a></li>
+<li><a href="#forceTab">Force-directed layout</a></li>
+</ul>
+<div id="listTab">
+  Order by <select id="tableSelect">
+    <option id="tableType">publication type</option>
+    <option id="tableYear">year</option>
+  </select>
+  <br>
+  <br>
+  <div id="tableDiv"></div>
+</div>
+<div id="forceTab">
+  Link <select id="forceSelect">
+    <option id="forceCoauthors">coauthors</option>
+    <option id="forceType">publication type</option>
+    <option id="forceYear">year</option>
+  </select>
+  <br>
+  <br>
+  <svg id="forceSvg"></svg>
+  <br>
+  <br>
+  This force-directed layout visualization was created as my first experiment with <a href="http://d3js.org/"> d3</a>.
+</div>
+
+
+<script>
+
+
+var timerTest;
+
+
+
+// jQuery tab controller
+$(function() {
+  $("#tabs").tabs();
+});
+
+// Width of svg element.  Set in ready() to make sure DOM is loaded.
+var w;
+
+// jQuery wraps document.getElementById, so just use it directly for single selection.
+var tableSelect = document.getElementById("tableSelect");
+var forceSelect = document.getElementById("forceSelect");
+
+// Used to normalize some layout parameters based on size
+var normalizeSize;
+
+// Create the force layout
+var force = d3.layout.force()
+    .gravity(0.03);
+
+// Svg element for the force-directed layout
+var forceSvg = d3.select("#forceSvg");
+
+// Div for table
+var tableDiv = d3.select("#tableDiv");
+
+// The node and link selections
+var node,
+    link;
+
+// The node and link data
+var nodes = [],
+    links = [];
+
+// Data extracted from publications
+var years,
+    typeMap,
+    typeStrings;
+
+// XXX: Can probably get rid of this, and just count the most frequent name...
+var myName = "D. Borland";
+
+// Durations for transitions
+var highlightTransition = 250,
+    viewTransition = 500;
+
+var nodeOpacity = 0.75;
+
+var gravityScale;
+
+
+// Utility function to return all unique values of a member variable of an array of objects
+function getUnique(a, m) {
+  return d3.set(a.map(function(a) { return a[m]; })).values();
+}
+
+// Get all unique years from an array of objects with year member variable,
+// sorted in descending order.
+function getYears(a) {
+  return getUnique(a, 'year').sort(function(a, b) { return b - a; });
+}
+
+
+// Wait till the DOM is loaded, as we want to know the size of the tab for setting the
+// force-directed layout size.
+$(document).ready(function() {
+  // Get the width of the tab content and set some state based on this
+  w = ($("#listTab").width());
+
+  normalizeSize = d3.scale.linear()
+    .domain([0, 1])
+    .range([0, w - 1]);
+
+  force.size([w, w]);
+
+  forceSvg.attr("width", w).attr("height", w);
+
+
+  // Load the data and set everything up
+  d3.json("publications.json", function(error, graph) {
+    // Print the error message, if any
+    if (error) console.log(error);
+
+    // Extract and sort the years
+    years = getYears(graph.publications);
+
+    // Descriptive strings for types
+    typeMap = d3.map();
+    typeMap.set("journal", "Journal Articles");
+    typeMap.set("conference", "Conference Papers");
+    typeMap.set("workshop", "Workshop Papers");
+    typeMap.set("article", "Other Articles");
+    typeMap.set("book chapter", "Book Chapters");
+    typeMap.set("poster", "Posters, Presentations, and Demonstrations");
+    typeMap.set("presentation", "Posters, Presentations, and Demonstrations");
+    typeMap.set("demonstration", "Posters, Presentations, and Demonstrations");
+    typeMap.set("panel", "Panels");
+    typeMap.set("whitepaper", "White Papers and Reports");
+    typeMap.set("report", "White Papers and Reports");
+    typeMap.set("preprint", "Preprints");
+    typeMap.set("dissertation", "Dissertation");
+    typeMap.set("patent", "Intellectual Property");
+
+    // Unique values
+    typeStrings = d3.set(typeMap.values()).values();
+
+
+    // Create the table
+    var tableType = tableSelect.options[tableSelect.selectedIndex].id;
+    createTable(graph.publications, tableType);
+
+
+    // Create the force directed layout
+    createForce(graph.publications);
+    var forceType = forceSelect.options[forceSelect.selectedIndex].id;
+    updateForce(graph.publications, forceType);
+
+    // GUI
+    d3.select("#forceSelect").on("change", function() {
+      resetGraph(graph.publications);
+
+      var forceType = this.options[this.selectedIndex].id;
+
+      // Create new links
+      setTimeout(function() { updateForce(graph.publications, forceType); }, viewTransition * 2);
+
+      // Transition gravity
+      gravityScale = d3.scale.linear()
+          .domain([0, 1])
+          .range(forceType == "forceYear" ? [force.gravity(), 0] : [0.03, 0.03]);
+
+      d3.timer(function(elapsed) {
+        var t = viewTransition * 10;
+
+        if (elapsed > t) {
+          return true;
+        }
+
+        force.gravity(gravityScale(elapsed / t));
+        force.start();
+      });
+    });
+
+    d3.select("#tableSelect").on("change", function() {
+      createTable(graph.publications, this.options[this.selectedIndex].id);
+    });
+
+
+    // Perform the force-directed layout
+    force.on("tick", function() {
+      link.attr("x1", function(d) { return d.source.x; })
+          .attr("y1", function(d) { return d.source.y; })
+          .attr("x2", function(d) { return d.target.x; })
+          .attr("y2", function(d) { return d.target.y; });
+
+      node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    });
+  });
+});
+
+
+function createForce(publications) {
+  // Create groups for nodes and links, with links first so that they are always rendered before nodes.
+  forceSvg.append("g").attr("id", "linkGroup");
+  forceSvg.append("g").attr("id", "nodeGroup");
+
+  // Create the initial nodes from the publications
+  createNodes(publications);
+
+  // Add circular border
+  forceSvg.append("circle")
+    .attr("cx", w / 2)
+    .attr("cy", w / 2)
+    .attr("r", w / 2 - 1)
+    .attr("stroke", "#CCC")
+    .attr("stroke-width", 2)
+    .attr("fill", "none");
+
+  forceSvg.append("circle")
+    .attr("cx", w / 2)
+    .attr("cy", w / 2)
+    .attr("r", w * 1.5 / 2 - 1)
+    .attr("stroke", "white")
+    .attr("stroke-width", w * 0.5)
+    .attr("fill", "none");
+
+  // Add tool tips
+  $('rect').tipsy({
+    gravity: 'w',
+    fade: true,
+    fadeInDuration: highlightTransition,
+    fadeOutDuration: highlightTransition,
+    html: true,
+    opacity: 1.0,
+    title: function() { return getPublicationString(this.__data__); }
+  });
+}
+
+
+function getPublicationString(publication) {
+  function nameString(authors) {
+    names = authors.split(",").map(function(d) {
+      return d.trim();
+    });
+
+    var s = "";
+    for (var i = 0; i < names.length; i++) {
+      if (names[i] == myName) {
+        s += "<u>" + names[i] + "</u>";
+      }
+      else {
+        s += names[i];
+      }
+
+      if (i < names.length - 2) {
+          s += ", ";
+      }
+      else if (i == names.length - 2) {
+        if (names.length == 2) {
+          s += " and ";
+        }
+        else {
+          s += ", and ";
+        }
+      }
+    }
+
+    return s;
+  }
+
+  var d = publication,
+      t = "";
+
+  switch (d.type) {
+
+    case "journal":
+    case "conference":
+    case "workshop":
+    case "article":
+    case "book chapter":
+    case "demonstration":
+    case "presentation":
+    case "poster":
+    case "panel":
+    case "whitepaper":
+    case "report":
+    case "preprint":
+      t += nameString(d.authors) + ". ";      
+      t += "url" in d ? "<a class='title' href='" + d.url + "'>" + "<b>" + d.title + "</b>" + "</a>. " : "<b>" + d.title + "</b>. ";
+      if ("editors" in d) t += "In " + nameString(d.editors) + ", editors, ";
+      t += "<i>" + d.venue + "</i>. ";
+      if ("info" in d) t += d.info + ". ";
+      if ("date" in d) t += d.date + ". ";      
+      t += d.year + ". ";
+      if ("doi" in d) t += "doi:&nbsp" + d.doi;
+
+      break;
+
+    case "dissertation":
+      t += nameString(d.authors) + ". ";
+      t += "url" in d ? "<a class='title' href='" + d.url + "'>" + "<i>" + d.title + "</i>" + "</a>. " : "<i>" + d.title + "</i>. ";
+      t += d.info + ". ";
+      t += d.year + ".";
+
+      break;
+
+    case "patent":
+      t += nameString(d.authors) + ". ";
+      t += "url" in d ? "<a class='title' href='" + d.url + "'>" + "<b>" + d.title + "</b>" + "</a>. " : "<b>" + d.title + "</b>. ";
+      t += d.info + ". ";
+      break;
+  }
+
+  return t;
+}
+
+function documentHref(document) {
+  return document.indexOf("http://") !== -1 ||
+         document.indexOf("https://") !== - 1 ? document : "pdfs/" + document;
+}
+
+function imageSrc(image) {
+  return "images/" + image;
+}
+
+function createNodes(publications) {
+  // Initialize the nodes array to the publications
+  nodes = publications.slice();
+
+  // Draw nodes as images
+  node = forceSvg.select("#nodeGroup").selectAll(".node")
+      .data(nodes, function(d) { return d.document; })
+    .enter().append("g")
+      .attr("class", "node")
+      .call(force.drag);
+
+  // Add an image, but wait to size it
+  node.append("image")
+	  .style("opacity", nodeOpacity);
+
+  // Add an invisible rect to hold the hyperlink, but wait to size it
+  node.append("a")
+      .attr("xlink:href", function(d) { return documentHref(d.document); })
+    .append("rect")
+      .style("opacity", 0)
+      .on("mouseover", function(d) {
+        var g = d3.select(this.parentNode.parentNode);
+
+        g.select("image").transition()
+          .duration(highlightTransition)
+          .style("opacity", 1)
+          .attr("x", -d.w * 0.75)
+          .attr("y", -d.h / 2)
+          .attr("width", d.w)
+          .attr("height", d.h);
+
+        g.select("rect").transition()
+          .duration(highlightTransition)
+          .attr("x", -d.w * 0.75)
+          .attr("y", -d.h / 2)
+          .attr("width", d.w)
+          .attr("height", d.h);
+      })
+      .on("mouseout", function(d) {
+        var g = d3.select(this.parentNode.parentNode);
+
+        g.select("image").transition()
+          .duration(highlightTransition)
+          .style("opacity", nodeOpacity)
+          .attr("x", -d.w / 4)
+          .attr("y", -d.h / 4)
+          .attr("width", d.w / 2)
+          .attr("height", d.h / 2);
+
+        g.select("rect").transition()
+          .duration(highlightTransition)
+          .attr("x", -d.w / 4)
+          .attr("y", -d.h / 4)
+          .attr("width", d.w / 2)
+          .attr("height", d.h / 2);
+      })
+      .on("click", function(d) {
+        if (d.hasOwnProperty("document2")) {
+          window.open(documentHref(d.document2));
+        }
+      });
+
+  // Add the hyperlink for the image, and set the image and rect size
+  node.selectAll("image")
+    .attr("xlink:href", function(d) {
+      var me = d3.select(this);
+      var parent = d3.select(this.parentNode);
+
+      var imageName = imageSrc(d.image);
+
+      // Get image info.
+      // Need to do this so we can get the image size to pass to the invisible rectangle used for the hyperlink.
+      // The rectangle is necessary to get middle-clicking/ctrl-clicking on the image to work properly.  If the
+      // image is directly attached to the hyperlink, middle-clicking/ctrl-clicking will open up the image in a new
+      // tab, not the link.
+      var img = new Image();
+      img.src = imageName;
+      img.onload = function() {
+        var w = this.width;
+        var h = this.height;
+
+        // Set image size
+        me.attr("x", -w / 4);
+        me.attr("y", -h / 4);
+        me.attr("width", w / 2);
+        me.attr("height", h / 2);
+
+        // Set rect size
+        parent.select("rect")
+          .attr("x", -w / 4)
+          .attr("y", -h / 4)
+          .attr("width", w / 2)
+          .attr("height", h / 2);
+
+        // Add width and height to data
+        d.w = w;
+        d.h = h;
+      }
+
+      return imageName;
+    });
+}
+
+
+function updateForce(publications, linkType) {
+  var p = publications;
+
+  var labelOpacity = 0.75;
+
+  var dataDomain;
+
+  function addLabelNodes() {
+    node = forceSvg.select("#nodeGroup").selectAll(".node")
+        .data(nodes, function(d) { return d.title; });
+
+    var newNodes = node.enter().append("g")
+        .attr("class", "node")
+        .call(force.drag);
+
+    newNodes.append("circle")
+        .attr("r", 20)
+        .style("stroke-opacity", 0.01)
+        .style("fill-opacity", 0.01)
+      .transition()
+        .duration(viewTransition)
+        .style("stroke-opacity", 0.25)
+        .style("fill-opacity", 1.0);
+
+    newNodes.append("text")
+        .text(function(d) { return d.title; })
+        .attr("dy", ".3em")
+        .attr("pointer-events", "none")
+        .style("fill", "black")
+        .style("fill-opacity", 0.01)
+        .style("stroke", "none")
+      .transition()
+        .duration(viewTransition)
+        .style("fill-opacity", labelOpacity);
+  }
+
+  function names(authors) {
+    return authors.split(",").map(function(d) {
+      return d.trim();
+    });
+  }
+
+  switch(linkType) {
+    case "forceCoauthors":
+      // Create links
+      for (var i = 0; i < p.length; i++) {
+        var names1 = names(p[i].authors);
+        for (var j = i + 1; j < p.length; j++) {
+          var names2 = names(p[j].authors);
+          var count = 0;
+          for (var n = 0; n < names1.length; n++) {
+            if (names1[n] == myName) {
+              continue;
+            }
+
+            for (var m = 0; m < names2.length; m++) {
+              if (names1[n] == names2[m]) {
+                count++;
+              }
+            }
+          }
+          if (count > 0) {
+            links.push({ "source":i, "target":j, "value":count });
+          }
+        }
+      }
+
+      dataDomain = [1, d3.max(links, function(d) { return d.value; })];
+
+      break;
+
+    case "forceYear":
+      // Add years to nodes
+      years.forEach(function(e) { nodes.push({ title: e }); });
+
+      // Layout for year nodes
+      var yearX = d3.scale.linear()
+          .domain(d3.extent(years))
+          .range([1.25 * Math.PI, -0.25 * Math.PI]);
+
+      var r = 0.5;
+
+      var circleToWidth = d3.scale.linear()
+          .domain([0, 1])
+          .range([w / 2, w])
+
+      nodes.slice(p.length, nodes.length).forEach(function(entry) {
+        entry.fixed = true;
+        entry.x = circleToWidth(r * Math.cos(yearX(entry.title)));
+        entry.y = circleToWidth(r * Math.sin(yearX(entry.title)));
+      });
+
+      addLabelNodes();
+
+
+      // Create links
+      for (var i = 0; i < p.length; i++) {
+        var year1 = nodes[i].year;
+
+        for (var j = p.length; j < nodes.length; j++) {
+          var year2 = nodes[j].title;
+
+          if (year1 == year2) {
+            links.push({ "source":i, "target":j, "value":1 });
+          }
+        }
+      }
+
+      dataDomain = [0, 2];
+
+      break;
+
+    case "forceType":
+      // Add types to nodes
+      typeStrings.forEach(function(e) { nodes.push({ title: e }); });
+
+      addLabelNodes();
+
+
+      // Create links
+      for (var i = 0; i < p.length; i++) {
+        var type1 = nodes[i].type;
+
+        for (var j = p.length; j < nodes.length; j++) {
+          var type2 = nodes[j].title;
+
+          if (typeMap.get(type1) == type2) {
+            links.push({ "source":i, "target":j, "value":1 });
+          }
+        }
+      }
+
+      dataDomain = [0, 2];
+
+      break;
+  }
+
+  // In case this is the first time, so there is no user selection
+  force.gravity(linkType == "forceYear" ? 0 : 0.03);
+
+  // Scale link distance
+  var distance = d3.scale.linear()
+      .domain(dataDomain)
+      .range([normalizeSize(0.15), normalizeSize(0.05)]);
+
+  // Scale line width
+  var lineWidth = d3.scale.linear()
+    .domain(dataDomain)
+    .range([1, 10]);
+
+  // Scale line opacity
+  var lineOpacity = d3.scale.linear()
+    .domain(dataDomain)
+    .range([0.1, 0.5]);
+
+  // Update the force layout
+  force
+      .nodes(nodes)
+      .links(links)
+      .linkDistance(function(d) { return distance(d.value); })
+      .linkStrength(0)
+      .charge(-normalizeSize(5.0 / nodes.length))
+      .start();
+
+  // Transition link strength
+  d3.timer(function(elapsed) {
+    var t = viewTransition * 50;
+    if (elapsed > t) {
+      return true;
+    }
+
+    force.linkStrength(elapsed / t);
+    force.start();
+  });
+
+
+  // Draw links
+  link = forceSvg.select("#linkGroup").selectAll("link")
+      .data(links)
+    .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) { return lineWidth(d.value); })
+      .style("stroke-linecap", "round")
+      .style("stroke-opacity", 0.01);
+
+  link.transition()
+      .duration(viewTransition)
+      .style("stroke-opacity", function(d) { return lineOpacity(d.value); });
+
+
+  // Now that we have links, compute color by weight for any label nodes
+  var color = d3.scale.linear()
+      .domain(d3.extent(nodes.map(function(a) { return a.weight; })))
+      .range(["white", "chocolate"]);
+
+  forceSvg.select("#nodeGroup").selectAll("circle")
+      .style("fill", function(d) { return color(d.weight); })
+}
+
+
+function resetGraph(publications) {
+  // Initialize the nodes array to the publications
+  nodes = publications.slice();
+
+  // Fade out and remove any extra nodes
+  var exitNodes = forceSvg.select("#nodeGroup").selectAll(".node")
+      .data(nodes, function(d) { return d.title; })
+    .exit();
+
+  exitNodes.transition()
+      .duration(viewTransition)
+      .remove();
+
+  exitNodes.selectAll("text").transition()
+      .duration(viewTransition)
+      .style("stroke-opacity", 0.01);
+
+  exitNodes.selectAll("circle").transition()
+      .duration(viewTransition)
+      .style("stroke-opacity", 0.01)
+      .style("fill", "white");
+
+
+  // Reset links array
+  links.splice(0, links.length);
+
+  // Fade out and remove links
+  forceSvg.select("#linkGroup").selectAll("line").transition()
+      .duration(viewTransition)
+      .style("stroke-opacity", 0.01)
+      .remove();
+
+  force.start();
+}
+
+
+function createTable(publications, tableType) {
+  // Generate table data
+  var tableData = [];
+
+  switch (tableType) {
+    case "tableType":
+      typeStrings.forEach(function(e) {
+        // Add the type string
+        var type = { value: e, values: [] };
+
+        // Find the publications matching this type string
+        var pubs = publications.filter(function(e) { return typeMap.get(e.type) == type.value; });
+
+        if (pubs.length === 0) return;
+        
+        tableData.push(type);
+
+        // Get the unique years for the publications
+        var years = getYears(pubs);
+        years.forEach(function(e) {
+          // Add the years
+          var year = { value: e, pubs: [] };
+          type.values.push(year);
+
+          // Add the publications
+          year.pubs = pubs.filter(function(e) { return e.year == year.value; });
+        });
+      });
+
+      break;
+
+    case "tableYear":
+      years.forEach(function(e) {
+        // Add the year
+        var year = { value: e, values: [] };
+        tableData.push(year);
+
+        // Find the publications matching this year
+        var pubs = publications.filter(function(e) { return e.year == year.value; });
+
+        // Get the unique types for the publications
+        var types = [];
+        getUnique(pubs, 'type').forEach(function(e) { types.push(typeMap.get(e)); });
+        types = d3.set(types).values();
+        types.sort(function(a, b) { return d3.ascending(typeStrings.indexOf(a), typeStrings.indexOf(b)); });
+
+        types.forEach(function(e) {
+          // Add the types
+          var type = { value: e, pubs: [] };
+          year.values.push(type);
+
+          // Add the publications
+          type.pubs = pubs.filter(function(e) { return typeMap.get(e.type) == type.value; });
+        });
+      });
+
+      break;
+  }
+
+
+  // Clear the table
+  tableDiv.selectAll("div").remove();
+
+
+	// Create divs for each heading (publication type or year)
+  var divs = tableDiv.selectAll("div")
+      .data(tableData)
+    .enter().append("div");
+
+  // Add separating lines, and remove the first
+  divs.append("hr");
+  tableDiv.select("hr").remove();
+
+  // Add the first heading
+  divs.append("h2")
+    .text(function(d) { return d.value; })
+    .style("text-align", "center");
+
+  // Add divs for each secondary heading (year or publication type)
+  var tables = divs.selectAll("div")
+      .data(function(d) { return d.values; })
+    .enter().append("div");
+
+  // Add the secondary heading
+  tables.append("h3")
+      .text(function(d) { return d.value; });
+
+  // Add tables for each secondary heading
+  var tables2 = tables.append("table").append("tbody");
+
+  // Add the publications
+  var pub = tables2.selectAll("tr")
+      .data(function(d) { return d.pubs; })
+    .enter().append("tr");
+
+  pub.append("td")
+      .style("text-align", "center")
+    .append("div")
+      .style("min-width", "96px")
+    .append("a")
+      .attr("href", function(d) { return documentHref(d.document); })
+    .append("img")
+      .attr("src", function(d) { return imageSrc(d.image); })
+      .on("click", function(d) {
+        if (d.hasOwnProperty("document2")) {
+          window.open(documentHref(d.document2));
+        }
+      });
+
+  pub.append("td")
+      .html(function(d) { return getPublicationString(d); });
+}
+
+</script>
+</body>
+</html>
