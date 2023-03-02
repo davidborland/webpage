@@ -23,10 +23,12 @@
     {
       "authors": "H. O. Masson, D. Borland, J. Reilly, A. Telleria, S. Shrivastava, M. Watson, L. Bustillo, Z. Li, L. Capps, B. P. Kellman, Z. A. King, A. Richelle, N. E. Lewis, K. Robasky",
       "title": "Inferring a cell's capabilities from omics data with ImmCellFie",
+      "url": "https://doi.org/10.1016/j.xpro.2023.102069",
       "type": "journal", 
       "venue": "STAR Protocols",
       "year": 2023,
-      "info": "Accepted for publication",
+      "info": "4(1)",
+      "doi": "10.1016/j.xpro.2023.102069",
       "image": "ImmCellFie_01_tn.png",
       "document": "https://www.biorxiv.org/content/10.1101/2022.11.16.516672v1"
     },
@@ -43,7 +45,7 @@
     {
       "authors": "Y. Guo, D. Borland, C. McCormick, J. Stein, G. Wu, A. Krishnamurthy",
       "title": "Cell counting with inverse distance kernel and self-supervised learning",
-      "url": "https://link.springer.com/chapter/10.1007/978-3-031-16961-8_1",
+      "url": "https://doi.org/10.1007/978-3-031-16961-8_1",
       "type": "workshop",      
       "venue": "MICCAI, 1st International Workshop on Medical Optical Imaging and Virtual Microscopy Image Analysis (MOVI)",
       "info": "Lecture Notes in Computer Science 13578",
