@@ -308,6 +308,7 @@
       "type": "poster",
       "venue": "2019 Workshop on Visual Analytics in Healthcare (VAHC 2019)",
       "year": 2019,
+      "doi": "10.1109/VAHC47919.2019.8945029",
       "image": "poster_fig1_tn.png",
       "document": "poster_vis_FINAL1.pdf"
     },
@@ -636,6 +637,7 @@
       "type": "poster",
       "venue": "Proceedings of the First ACM SIGCHI Annual Symposium on Computer-Human Interaction in Play (CHI PLAY '14)",
       "year": 2014,
+      "doi": "10.1145/2658537.2661319",
       "image": "ASPECT_03_tn.png",
       "document": "p405-chen.pdf"
     },
@@ -645,8 +647,8 @@
       "type": "demonstration",
       "venue": "Proceedings of the First ACM SIGCHI Annual Symposium on Computer-Human Interaction in Play (CHI PLAY '14)",
       "info": "(Top-Ten Entry, Student Game Design Competition)",
-      "doi": "10.1145/2658537.2662978",
       "year": 2014,
+      "doi": "10.1145/2658537.2662978",
       "image": "ASPECT_02_tn.png",
       "document": "p327-chen.pdf"
     },
