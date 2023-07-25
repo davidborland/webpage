@@ -261,6 +261,7 @@
     {		
       "authors": "K. Qi, D. Borland, N. L. Williams, E. Jackson, J. Minogue, T. Peck",
       "title": "The impact of haptic and visual feedback on teaching",
+      "url": "https://doi.org/10.1109/VRW50115.2020.00157",
       "type": "poster",
       "venue": "Proceedings of IEEE Virtual Reality (2020)",
       "year": 2020,
@@ -305,6 +306,7 @@
     {
       "authors": "J. Zhang, D. Borland, W. Wang, J. Shrestha, D. Gotz",
       "title": "Dynamic hierarchical aggregation, selection bias tracking, and detailed subset comparison for high dimensional event sequence data",
+      "url": "https://doi.org/10.1109/VAHC47919.2019.8945029",
       "type": "poster",
       "venue": "2019 Workshop on Visual Analytics in Healthcare (VAHC 2019)",
       "year": 2019,
@@ -483,6 +485,7 @@
     {
       "authors": "J. Minogue,D. Borland,M. Russo,S. T. Chen",
       "title": "Tracing the development of a haptically-enhanced simulation for teaching phase change",
+      "url": "https://doi.org/10.1145/2968120.2987723",
       "type": "workshop",
       "venue": "Proceedings of the 2016 Annual Symposium on Computer-Human Interaction in Play (CHI PLAY '16)",
       "year": 2016,
@@ -634,6 +637,7 @@
     {
       "authors": "S. T. Chen,D. Borland,M. Russo,R. Grady,J. Minogue",
       "title": "ASPECT: sinking and floating haptics for elementary school students",
+      "url": "https://doi.org/10.1145/2658537.2661319",
       "type": "poster",
       "venue": "Proceedings of the First ACM SIGCHI Annual Symposium on Computer-Human Interaction in Play (CHI PLAY '14)",
       "year": 2014,
@@ -644,6 +648,7 @@
     {
       "authors": "S. T. Chen,D. Borland,M. Russo,R. Grady,J. Minogue",
       "title": "ASPECT sinking and floating: an interactive playable simulation for teaching buoyancy concepts",
+      "url": "https://doi.org/10.1145/2658537.2662978",
       "type": "demonstration",
       "venue": "Proceedings of the First ACM SIGCHI Annual Symposium on Computer-Human Interaction in Play (CHI PLAY '14)",
       "info": "(Top-Ten Entry, Student Game Design Competition)",
@@ -756,6 +761,7 @@
     {
       "authors": "M. Niethammer,D. Borland,J. S. Marron,J. Woosley,N. E. Thomas",
       "title": "Appearance normalization of histology slides",
+      "url": "https://doi.org/10.1007/978-3-642-15948-0_8",
       "type": "workshop",
       "venue": "MICCAI, International Workshop on Machine Learning in Medical Imaging",
       "year": 2010,
