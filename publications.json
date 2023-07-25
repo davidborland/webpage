@@ -16,7 +16,6 @@
       "type": "conference", 
       "venue": "IEEE International Symposium on Biomedical Imaging (ISBI)",
       "year": 2023,
-      "info": "Accepted for publication",
       "image": "DeepStitching_01_tn.png",
       "document": "DeepStitching_01.png"
     },
@@ -124,6 +123,7 @@
       "type": "workshop",      
       "venue": "2021 Workshop on Visual Analytics in Healthcare (VAHC 2021)",
       "year": 2021,
+      "doi": "10.1109/VAHC53616.2021.00008",
       "image": "Cadence_COVID_01_tn.png",
       "document": "https://arxiv.org/abs/2108.11476"
     },
@@ -254,6 +254,7 @@
       "type": "workshop",
       "venue": "5th Annual Workshop on K-12+ Embodied Learning through Virtual and Augmented Reality (2020)",
       "year": 2020,
+      "doi": "10.1109/VRW50115.2020.00093",
       "image": "Buoyancy_PrePostComp_01_tn.png",
       "document": "Buoyancy_PrePostComp_01.png"
     },	
@@ -753,6 +754,7 @@
       "type": "workshop",
       "venue": "MICCAI, International Workshop on Machine Learning in Medical Imaging",
       "year": 2010,
+      "doi": "10.1007/978-3-642-15948-0_8",
       "image": "Melanoma_02_tn.png",
       "document": "2010_Niethammer_Borland_Appearance-Normalization-of-Histology.pdf"
     },
