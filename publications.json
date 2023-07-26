@@ -1,6 +1,16 @@
 {
   "publications": [     
     {
+      "authors": "A. Z. Wang, D. Borland, D. Gotz",
+      "title": "Countering Simpson's paradox with counterfactuals",
+      "type": "poster", 
+      "venue": "Poster Abstracts of IEEE VIS 2023",
+      "year": 2023,
+      "info": "Accepted for presentation",
+      "image": "paradox_teaser_tn.png",
+      "document": "taradox_teaser.png"
+    },  
+    {
       "authors": "M. Fitzgerald, J. Minogue, D. Borland, E. Brunson, T. Peck",
       "title": "Which way to go: exploring force arrow placement",
       "type": "journal", 
