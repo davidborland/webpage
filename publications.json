@@ -1,5 +1,16 @@
 {
-  "publications": [     
+  "publications": [  
+    {
+      "authors": "D. Borland, A. Z. Wang, D. Gotz",
+      "title": "Using counterfactuals to improve causal inferences in visualizations",
+      "type": "article",
+      "venue": "IEEE Computer Graphics and Applications",
+      "year": 2024,
+      "info": "Accepted for publication",
+      "doi": "10.1109/MCG.2023.3338788",
+      "image": "Counterfactuals_01_tn.png",
+      "document": "Counterfactuals_01.png"
+    },    
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
       "title": "Countering Simpson's paradox with counterfactuals",
