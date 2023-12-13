@@ -18,16 +18,17 @@
       "venue": "Poster Abstracts of IEEE VIS 2023",
       "year": 2023,
       "info": "Accepted for presentation",
+      "doi": "10.1119/5.0093063",
       "image": "paradox_teaser_tn.png",
       "document": "taradox_teaser.png"
     },  
     {
-      "authors": "M. Fitzgerald, J. Minogue, D. Borland, E. Brunson, T. Peck",
+      "authors": "M. Fitzgerald, D. Borland, J. Minogue, E. Brunson, T. C. Peck",
       "title": "Which way to go: exploring force arrow placement",
       "type": "journal", 
       "venue": "The Physics Teacher",
-      "year": 2023,
-      "info": "Accepted for publication",
+      "year": 2024,
+      "info": "4:24-28, Accepted for publication",
       "image": "ForceArrows_01_tn.png",
       "document": "ForceArrows_01.png"
     },     
@@ -126,7 +127,7 @@
       "document": "ASTE_2022_poster.pdf"
     }, 
     {
-      "authors": "K. Qi, D. Borland, E. Brunsen, J. Minogue, T. Peck",
+      "authors": "K. Qi, D. Borland, E. Brunsen, J. Minogue, T. C. Peck",
       "title": "The impact of prior knowledge on the effectiveness of haptic feedback and visual modalities for teaching forces",
       "url": "https://dl.acm.org/doi/abs/10.1145/3462244.3479915",
       "type": "conference",      
@@ -280,7 +281,7 @@
       "document": "Buoyancy_PrePostComp_01.png"
     },	
     {		
-      "authors": "K. Qi, D. Borland, N. L. Williams, E. Jackson, J. Minogue, T. Peck",
+      "authors": "K. Qi, D. Borland, N. L. Williams, E. Jackson, J. Minogue, T. C. Peck",
       "title": "The impact of haptic and visual feedback on teaching",
       "url": "https://doi.org/10.1109/VRW50115.2020.00157",
       "type": "poster",
