@@ -54,7 +54,7 @@
     },
     {
       "authors": "H. O. Masson, D. Borland, J. Reilly, A. Telleria, S. Shrivastava, M. Watson, L. Bustillo, Z. Li, L. Capps, B. P. Kellman, Z. A. King, A. Richelle, N. E. Lewis, K. Robasky",
-      "title": "Inferring a cell's capabilities from omics data with ImmCellFie",
+      "title": "ImmCellFie: a user-friendly web-based platform to infer metabolic function from omics data",
       "url": "https://doi.org/10.1016/j.xpro.2023.102069",
       "type": "journal", 
       "venue": "STAR Protocols",
