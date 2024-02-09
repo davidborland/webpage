@@ -3,7 +3,7 @@
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
       "title": "An empirical study of counterfactual visualization to support visual causal inference",
-      "url": "https://journals.sagepub.com/doi/10.1177/14738716241229437",
+      "url": "https://doi.org/10.1177/14738716241229437",
       "type": "journal",
       "venue": "Information Visualization",
       "year": 2024,
@@ -15,7 +15,7 @@
     {
       "authors": "D. Borland, A. Z. Wang, D. Gotz",
       "title": "Using counterfactuals to improve causal inferences in visualizations",
-      "url": "https://www.computer.org/csdl/magazine/cg/2024/01/10414267/1TZIMWMajy8",
+      "url": "https://doi.org/10.1109/MCG.2023.3338788",
       "type": "article",
       "venue": "IEEE Computer Graphics and Applications",
       "year": 2024,
