@@ -2,7 +2,7 @@
   "publications": [  
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
-      "title": "An empirical study of counterfactual visualization to support visual causal inference",
+      "title": "A framework to improve causal inferences from visualizations using counterfactual operators",
       "type": "journal",
       "venue": "Information Visualization",
       "year": 2024,
