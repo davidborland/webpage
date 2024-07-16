@@ -2,6 +2,26 @@
   "publications": [  
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
+      "title": "Beyond correlation: incorporating counterfactual guidance to better support exploratory visual analysis",
+      "type": "journal",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics (Proceedings of IEEE VIS 2024)",
+      "year": 2025,
+      "info":"Accepted for publication",
+      "image": "guidance_01_tn.png",
+      "document": "guidance_01.png"
+    },
+    {
+      "authors": "A. Z. Wang, D. Borland, T. Peck, D. Gotz",
+      "title": "Causal priors and their influence on judgements of causality in visualized data",
+      "type": "journal",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics (Proceedings of IEEE VIS 2024)",
+      "year": 2025,
+      "info":"Accepted for publication",
+      "image": "causal_priors_01_tn.png",
+      "document": "causal_priors_01.png"
+    },
+    {
+      "authors": "A. Z. Wang, D. Borland, D. Gotz",
       "title": "A framework to improve causal inferences from visualizations using counterfactual operators",
       "type": "journal",
       "venue": "Information Visualization",
