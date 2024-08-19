@@ -26,9 +26,10 @@
       "type": "journal",
       "venue": "Information Visualization",
       "year": 2024,
-      "info": "Accepted for publication",
+      "info": "0(0)",
+      "doi": "https://doi.org/10.1177/14738716241265120",
       "image": "coexplorer-views_tn.png",
-      "document": "coexplorer-views.png"
+      "document": "https://doi.org/10.1177/14738716241265120"
     },
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
@@ -61,7 +62,7 @@
       "venue": "Poster Abstracts of IEEE VIS 2023",
       "year": 2023,
       "image": "paradox_teaser_tn.png",
-      "document": "taradox_teaser.png"
+      "document": "paradox_teaser.png"
     },  
     {
       "authors": "M. Fitzgerald, D. Borland, J. Minogue, E. Brunson, T. C. Peck",
