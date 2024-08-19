@@ -2,6 +2,26 @@
   "publications": [  
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
+      "title": "Leveraging LLMs to infer causality from visualized data: alignments and deviations from human judgments",
+      "type": "poster", 
+      "venue": "Poster Abstracts of IEEE VIS 2024",
+      "year": 2024,
+      "info": "Accepted for presentation",
+      "image": "LLMCausality_teaserposter_tn.png",
+      "document": "LLMCausality_teaserposter.png"
+    }, 
+    {
+      "authors": "Z. Wang, A. Z. Wang, D. Borland, D. Gotz",
+      "title": "CausalSynth: an interactive web application for synthetic dataset generation and visualization with user-defined causal relationships",
+      "type": "poster", 
+      "venue": "Poster Abstracts of IEEE VIS 2024",
+      "year": 2024,
+      "info": "Accepted for presentation",
+      "image": "causalSynth_teaser_tn.png",
+      "document": "causalSynth_teaser.png"
+    },   
+    {
+      "authors": "A. Z. Wang, D. Borland, D. Gotz",
       "title": "Beyond correlation: incorporating counterfactual guidance to better support exploratory visual analysis",
       "type": "journal",
       "venue": "IEEE Transactions on Visualization and Computer Graphics (Proceedings of IEEE VIS 2024)",
