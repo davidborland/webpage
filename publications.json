@@ -463,7 +463,7 @@
     {
       "authors": "D. Borland,L. Christopherson,C. Schmitt",
       "title": "Ontology-based interactive visualization of patient-generated research questions",
-      "url": "https://www.visualanalyticshealthcare.org/VAHC2018/proceedings/VAHC_2018_paper_3.pdf",
+      "url": "https://visualanalyticshealthcare.github.io/archive/2018/proceedings/VAHC_2018_paper_3.pdf",
       "type": "workshop",
       "venue": "2018 Workshop on Visual Analytics in Healthcare (VAHC 2018)",
       "year": 2018,
@@ -473,7 +473,7 @@
     {
       "authors": "W. Zhao,D. Borland,A. E. Chung,D. Gotz",
       "title": "Visual cohort queries for high-dimensional data: a design study",
-      "url": "https://www.visualanalyticshealthcare.org/VAHC2018/proceedings/VAHC_2018_paper_2.pdf",
+      "url": "https://visualanalyticshealthcare.github.io/archive/2018/proceedings/VAHC_2018_paper_2.pdf",
       "type": "workshop",
       "venue": "2018 Workshop on Visual Analytics in Healthcare (VAHC 2018)",
       "year": 2018,
@@ -559,7 +559,7 @@
       "venue": "2016 Workshop on Visual Analytics in Healthcare (VAHC 2016)",
       "year": 2016,
       "image": "VAHC_Evaluation_01_tn.png",
-      "document": "http://www.visualanalyticshealthcare.org/docs/VAHC2016_Proceedings.pdf#page=57"
+      "document": "https://visualanalyticshealthcare.github.io/archive/2016/proceedings/VAHC2016_Proceedings.pdf#page=57"
     },
     {
       "authors": "D. Borland,V. L. West,W. E. Hammond",
@@ -607,12 +607,12 @@
     {
       "authors": "V. L. West,D. Borland,D. West,W. E. Hammond",
       "title": "An evaluation of machine learning methods and visualization of results to characterize large healthcare document collections",
-      "url": "https://decisionsciences.org/wp-content/uploads/2017/11/p1043676.pdf",
+      "url": "https://www.researchgate.net/publication/290446175_An_Evaluation_of_Machine_Learning_Methods_and_Visualization_of_Results_to_Characterize_Large_Healthcare_Document_Collections",
       "type": "conference",
       "venue": "Proceedings of the 2015 Annual Meeting of the Decision Sciences Institute",
       "year": 2015,
       "image": "HealthLitVis_02_tn.png",
-      "document": "https://decisionsciences.org/wp-content/uploads/2017/11/p1043676.pdf"
+      "document": "HealthCareLitVis_DSI2015.pdf"
     },
     {
       "authors": "D. Borland,E. M. Hinz,L. A. Herhold,V. L. West,W. E. Hammond",
@@ -699,6 +699,7 @@
     {
       "authors": "D. Borland,V. L. West,W. E. Hammond",
       "title": "Multivariate visualization of system-wide National Health Service data using radial coordinates",
+      "url": "https://visualanalyticshealthcare.github.io/archive/2014/proceedings/VAHC2014_proceedings.pdf#page=53",
       "type": "workshop",
       "venue": "Proceedings of the 2014 Workshop on Visual Analytics in Healthcare (VAHC 2014)",
       "year": 2014,
@@ -708,6 +709,7 @@
     {
       "authors": "E. M. Hinz,D. Borland,H. Shah,V. L. West,W. E. Hammond",
       "title": "Temporal visualization of diabetes mellitus via hemoglobin A1c levels",
+      "url": "https://visualanalyticshealthcare.github.io/archive/2014/proceedings/VAHC2014_proceedings.pdf#page=17",
       "type": "workshop",
       "venue": "Proceedings of the 2014 Workshop on Visual Analytics in Healthcare (VAHC 2014)",
       "year": 2014,
@@ -782,6 +784,7 @@
     {
       "authors": "V. West,D. Borland,W. E. Hammond",
       "title": "Visualization of EHR and health related data for information discovery",
+      "url": "https://visualanalyticshealthcare.github.io/archive/2013/proceedings/VAHC2013_proceedings.pdf#page=34",
       "type": "workshop",
       "venue": "Proceedings of the 2013 Workshop on Visual Analytics in Healthcare (VAHC 2013)",
       "year": 2013,
@@ -815,7 +818,7 @@
     {
       "authors": "D. Borland",
       "title": "Ambient occlusion opacity mapping for visualization of internal molecular structure",
-      "url": "http://wscg.zcu.cz/jwscg/J_WSCG_2011/!_2011_J_WSCG-1.pdf",
+      "url": "https://dspace.zcu.cz/items/dbbb5981-b783-484a-b549-b1f777101ffc",
       "type": "journal",
       "venue": "Journal of WSCG",
       "info": "19(1):17-24",
