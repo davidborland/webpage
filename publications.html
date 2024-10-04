@@ -398,7 +398,7 @@ function getPublicationString(publication) {
     case "report":
     case "preprint":
       t += nameString(d.authors) + ". ";      
-      t += "url" in d && !"doi" in d ? "<a class='title' href='" + d.url + "'>" + "<b>" + d.title + "</b>" + "</a>. " : "<b>" + d.title + "</b>. ";
+      t += "<b>" + d.title + "</b>. ";
       if ("editors" in d) t += "In " + nameString(d.editors) + ", editors, ";
       t += "<i>" + d.venue + "</i>. ";
       if ("info" in d) t += d.info + ". ";
