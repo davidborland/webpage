@@ -404,8 +404,8 @@ function getPublicationString(publication) {
       if ("info" in d) t += d.info + ". ";
       if ("date" in d) t += d.date + ". ";      
       t += d.year + ". ";
-      if ("award" in d) t += "*<u>" + d.award + "</u>*"; 
-      if ("doi" in d) t += "<br />doi:&nbsp" + d.doi;
+      if ("award" in d) t += "<u>" + d.award + "</u>"; 
+      if ("doi" in d) t += "doi:&nbsp" + "<a class='title' href='https://doi.org/" + d.doi + "'>" + d.doi + "</a>";
 
       break;
 
