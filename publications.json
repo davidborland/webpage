@@ -25,7 +25,7 @@
       "type": "journal",
       "venue": "IEEE Transactions on Visualization and Computer Graphics (Proceedings of IEEE VIS 2024)",
       "year": 2025,
-      "info": "31(1)776-786",
+      "info": "31(1):776-786",
       "doi": "10.1109/TVCG.2024.3456369",
       "award": "Nominated for best paper award",
       "image": "guidance_01_tn.png",
@@ -38,7 +38,7 @@
       "type": "journal",
       "venue": "IEEE Transactions on Visualization and Computer Graphics (Proceedings of IEEE VIS 2024)",
       "year": 2025,
-      "info": "31(1)765-775",
+      "info": "31(1):765-775",
       "doi": "10.1109/TVCG.2024.3456381",
       "image": "casualpriors_01_tn.png",
       "document": "https://arxiv.org/abs/2408.16077"
