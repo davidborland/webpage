@@ -3,7 +3,7 @@
     {
       "authors": "J. Bernard, D. Borland, R. S. Laramee, B. Preim, R. G. Raidou, A. Vilanova Bartroli",
       "title": "Future challenges and unsolved problems in health visualization",
-      "url": "https://diglib.eg.org/handle/10.2312/evt20251119",
+      "url": "https://doi.org/10.2312/evt.20251119",
       "type": "panel",
       "venue": "EuroVis 2025 - 27th EG Conference on Visualization",
       "doi": "10.2312/evt.20251119",
@@ -14,13 +14,13 @@
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
       "title": "Characterizing the performance of counterfactual and correlation guidance via dataset perturbations",
-      "url": "https://diglib.eg.org/handle/10.2312/evp20251124",
+      "url": "https://doi.org/10.2312/evp.20251124",
       "type": "poster", 
       "venue": "EuroVis 2025 - 27th EG Conference on Visualization",
       "doi": "10.2312/evp.20251124",
       "year": 2025,
       "image": "GuidancePerturbations_01_tn.png",
-      "document": "https://diglib.eg.org/server/api/core/bitstreams/21fb0c60-09a4-4da8-b667-922ab671a02e/content"
+      "document": "https://diglib.eg.org/handle/10.2312/evp20251124"
     },
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
