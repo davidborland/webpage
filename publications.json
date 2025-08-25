@@ -1,6 +1,16 @@
 {
   "publications": [
     {
+      "authors": "A. Z. Wang, D. Borland, D. Gotz",
+      "title": "Visual analytics for causal reasoning from real-world health data",
+      "type": "workshop",
+      "venue": "2025 Workshop on Visual Analytics in Healthcare (VAHC 2025)",
+      "year": 2025,
+      "info": "Accepted for publication",
+      "image":"causal-reasoning-kidney-01-tn.png",
+      "document":"causal-reasoning-kidney-01-tn.png"
+    },
+    {
       "authors": "J. Bernard, D. Borland, R. S. Laramee, B. Preim, R. G. Raidou, A. Vilanova Bartroli",
       "title": "Future challenges and unsolved problems in health visualization",
       "url": "https://doi.org/10.2312/evt.20251119",
