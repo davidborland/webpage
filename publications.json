@@ -16,8 +16,8 @@
       "venue": "Data Science for Transportation",
       "year": 2025,
       "info": "Accepted for publication",
-      "image":"lidar-processing-tn.png",
-      "document":"lidar-processing.png"
+      "image":"lidar_processing_tn.png",
+      "document":"lidar_processing.png"
     },
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
