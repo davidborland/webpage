@@ -1,6 +1,16 @@
 {
   "publications": [
     {
+      "authors": "H. Yi, M. Satusky, D. Borland, M. Chakraborty, M. Vann, R. Srinivasan, C. Bizon",
+      "title": "Automated roadside object detection and geolocation by leveraging data fusion of airborne LiDAR and videolog images",
+      "type": "journal",
+      "venue": "Data Science for Transportation",
+      "year": 2025,
+      "info": "Accepted for publication",
+      "image":"lidar-processing-tn.png",
+      "document":"lidar-processing.png"
+    },
+    {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
       "title": "Visual analytics for causal reasoning from real-world health data",
       "type": "workshop",
