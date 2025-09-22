@@ -1,6 +1,15 @@
 {
   "publications": [
     {
+      "authors": "R. Sengupta, X. Tan, D. Borland, R. Marks (moderator)",
+      "title": "From discovery to direction: how AI powers research translation",
+      "type": "panel",
+      "venue": "UNC Innovate Carolina Monthly AI Series",
+      "year": 2025,
+      "image":"innovate_carolina_ai_panel_tn.png",
+      "document":"innovate_carolina_ai_panel.png"
+    },
+    {
       "authors": "H. Yi, M. Satusky, D. Borland, M. Chakraborty, M. Vann, R. Srinivasan, C. Bizon",
       "title": "Automated roadside object detection and geolocation by leveraging data fusion of airborne LiDAR and videolog images",
       "type": "journal",
@@ -207,12 +216,11 @@
       "document":"AI_Tool_with_Active_Learning_for_Detection_of_Rural_Roadside_Safety_Features.pdf"      
     },
     {
-      "authors": "D. Borland, C. Brewer, K. Moreland, B. Rogowitz, F. Samsel, M. Stone",
+      "authors": "D. Borland, C. Brewer, K. Moreland, B. Rogowitz, F. Samsel, M. Stone, T. M. Rhyne (organizer)",
       "title": "Color mapping in VIS: perspectives on optimal solutions",
       "type": "panel",
       "venue": "IEEE VIS 2017",
       "year": 2017,
-      "info": "T. M. Rhyne organizer",
       "image":"ColorMapPanel_01_tn.png",
       "document":"ColorMappingInVis_2015_Borland.pdf"
     },
