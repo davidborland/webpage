@@ -1,5 +1,14 @@
 {
   "publications": [
+        {
+      "authors": "D. Borland, K. Carter, A. Mandal, B. Boyles (moderator)",
+      "title": "AI-powered solutions for scientific discoveries",
+      "type": "panel",
+      "venue": "UNC University Research Week 2025",
+      "year": 2025,
+      "image":"ncdot_university_research_week_01_tn.png",
+      "document":"NCDOT - AI-Powered Solutions for Scientific Discoveries _ UNC Research Week.pdf"
+    },
     {
       "authors": "R. Sengupta, X. Tan, D. Borland, R. Marks (moderator)",
       "title": "From discovery to direction: how AI powers research translation",
