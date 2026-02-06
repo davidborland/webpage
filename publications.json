@@ -1,6 +1,16 @@
 {
   "publications": [
-        {
+    {
+      "authors": "A. Z. Wang, D. Borland, E. Calcaterra, D. Gotz",
+      "title": "Contextualization or rationalization? The effect of causal priors on data visualization interpretation",
+      "type": "journal",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "year": 2026,
+      "info": "Accepted for publication",
+      "image": "cont_rat_01_tn.png",
+      "document": "cont_rat_01.png"
+    },
+    {
       "authors": "D. Borland, K. Carter, A. Mandal, B. Boyles (moderator)",
       "title": "AI-powered solutions for scientific discoveries",
       "type": "panel",
@@ -38,7 +48,7 @@
       "year": 2025,
       "info": "Accepted for publication",
       "image":"causal-reasoning-kidney-01-tn.png",
-      "document":"causal-reasoning-kidney-01.png"
+      "document":"https://arxiv.org/abs/2508.17474"
     },
     {
       "authors": "J. Bernard, D. Borland, R. S. Laramee, B. Preim, R. G. Raidou, A. Vilanova Bartroli",
@@ -271,9 +281,9 @@
     {
       "authors": "D. Borland, I. Brain, K. Fecho, E. Pfaff, H. Xu, J. Champion, C. Bizon, D. Gotz",
       "title": "Enabling longitudinal exploratory analysis of clinical COVID data",
-      "url": "https://visualanalyticshealthcare.org/proceedings/VAHC-2021-Proceedings.pdf",
+      "url": "https://doi.org/10.1109/VAHC53616.2021.00008",
       "type": "workshop",      
-      "venue": "2021 Workshop on Visual Analytics in Healthcare (VAHC 2021)",
+      "venue": "2021 IEEE Workshop on Visual Analytics in Healthcare (VAHC 2021)",
       "year": 2021,
       "doi": "10.1109/VAHC53616.2021.00008",
       "image": "Cadence_COVID_01_tn.png",
@@ -460,7 +470,7 @@
       "title": "Dynamic hierarchical aggregation, selection bias tracking, and detailed subset comparison for high dimensional event sequence data",
       "url": "https://doi.org/10.1109/VAHC47919.2019.8945029",
       "type": "poster",
-      "venue": "2019 Workshop on Visual Analytics in Healthcare (VAHC 2019)",
+      "venue": "2019 IEEE Workshop on Visual Analytics in Healthcare (VAHC 2019)",
       "year": 2019,
       "doi": "10.1109/VAHC47919.2019.8945029",
       "image": "poster_fig1_tn.png",
