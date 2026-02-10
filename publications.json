@@ -3,12 +3,14 @@
     {
       "authors": "A. Z. Wang, D. Borland, E. Calcaterra, D. Gotz",
       "title": "Contextualization or rationalization? The effect of causal priors on data visualization interpretation",
+      "url": "https://doi.org/10.1109/TVCG.2026.3663050",
       "type": "journal",
       "venue": "IEEE Transactions on Visualization and Computer Graphics",
+      "doi": "10.1109/TVCG.2026.3663050",
       "year": 2026,
-      "info": "Accepted for publication",
+      "info": "Early Access",
       "image": "cont_rat_01_tn.png",
-      "document": "cont_rat_01.png"
+      "document": "https://arxiv.org/abs/2602.07748"
     },
     {
       "authors": "D. Borland, K. Carter, A. Mandal, B. Boyles (moderator)",
@@ -46,7 +48,6 @@
       "type": "workshop",
       "venue": "2025 Workshop on Visual Analytics in Healthcare (VAHC 2025)",
       "year": 2025,
-      "info": "Accepted for publication",
       "image":"causal-reasoning-kidney-01-tn.png",
       "document":"https://arxiv.org/abs/2508.17474"
     },
