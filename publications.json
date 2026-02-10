@@ -177,9 +177,11 @@
     {
       "authors": "Z. Wei, T. Dan, J. Ding, C. McCormick, F. A. Kyere, M. Kim, D. Borland, J. L. Stein, G. Wu",
       "title": "High throughput deep model of 3D nucleus instance segmentation by stereo stitching contextual gaps",
+      "url": "https://doi.org/10.1109/ISBI53787.2023.10230745",
       "type": "conference", 
       "venue": "IEEE International Symposium on Biomedical Imaging (ISBI)",
       "year": 2023,
+      "doi": "10.1109/ISBI53787.2023.10230745",
       "image": "DeepStitching_01_tn.png",
       "document": "DeepStitching_01.png"
     },
