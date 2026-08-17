@@ -1,6 +1,16 @@
 {
   "publications": [
     {
+      "authors": "V. Goodacre, H. Yi, S. Lu, E. Calcaterra, N. Adulyanukosol, D. Borland, and D. Gotz",
+      "title": "Enabling visual cohort comparison in notebook environments",
+      "type": "poster",
+      "venue": "American Medical Informatics Association (AMIA) Annual Symposium Podium Abstract",
+      "year": "2026",
+      "info": "Accepted for presentation",
+      "image":"cohort_notebook_01_tn.png",
+      "document":"cohort_notebook_01.png"
+    },
+    {
       "authors": "A. Z. Wang, D. Borland, E. Calcaterra, D. Gotz",
       "title": "Contextualization or rationalization? The effect of causal priors on data visualization interpretation",
       "url": "https://doi.org/10.1109/TVCG.2026.3663050",
