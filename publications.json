@@ -1,9 +1,19 @@
 {
   "publications": [
     {
+      "authors": "A. Z. Wang, D. Borland, D. Gotz",
+      "title": "Conveying causality through visualization: a survey of visual causal inference",
+      "type": "journal",
+      "venue": "IEEE Transactions on Visualization and Computer Graphics (Proceedings of IEEE VIS 2026)",
+      "year": 2027,
+      "info": "accepted for publication",
+      "image": "vci_survey_01_tn.png",
+      "document": "vci_survey_01.png"
+    },
+    {
       "authors": "C. Xiong Bearfield, D. Gotz, A. Kale, B. C. Kwon, K. Mueller",
       "organizers": "A. Z. Wang, D. Borland, D. Gotz",
-      "title": "From Correlation to Causality: Future Directions in Visual Causal Inference",
+      "title": "From correlation to causality: future directions in visual causal inference",
       "url": "https://vis-panel-vci.github.io",
       "type": "panel",
       "venue": "IEEE VIS 2026",
