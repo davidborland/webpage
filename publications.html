@@ -400,6 +400,7 @@ function getPublicationString(publication) {
     case "preprint":
       t += nameString(d.authors) + ". ";      
       t += "<b>" + d.title + "</b>. ";
+      if ("organizers" in d) t += "Organizers: " + nameString(d.organizers) + ". ";
       if ("editors" in d) t += "In " + nameString(d.editors) + ", editors, ";
       t += "<i>" + d.venue + "</i>. ";
       if ("info" in d) t += d.info + ". ";

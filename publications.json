@@ -1,6 +1,18 @@
 {
   "publications": [
     {
+      "authors": "C. Xiong Bearfield, D. Gotz, A. Kale, B. C. Kwon, K. Mueller",
+      "organizers": "A. Z. Wang, D. Borland, D. Gotz",
+      "title": "From Correlation to Causality: Future Directions in Visual Causal Inference",
+      "url": "https://vis-panel-vci.github.io",
+      "type": "panel",
+      "venue": "IEEE VIS 2026",
+      "year": 2026,
+      "info": "Accepted for presentation",
+      "image": "vci_panel_year_tn.png",
+      "document": "vci_panel_year_tn.png"
+    },
+    {
       "authors": "V. Goodacre, H. Yi, S. Lu, E. Calcaterra, N. Adulyanukosol, D. Borland, and D. Gotz",
       "title": "Enabling visual cohort comparison in notebook environments",
       "type": "poster",
@@ -250,7 +262,8 @@
       "document":"AI_Tool_with_Active_Learning_for_Detection_of_Rural_Roadside_Safety_Features.pdf"      
     },
     {
-      "authors": "D. Borland, C. Brewer, K. Moreland, B. Rogowitz, F. Samsel, M. Stone, T. M. Rhyne (organizer)",
+      "authors": "D. Borland, C. Brewer, K. Moreland, B. Rogowitz, F. Samsel, M. Stone",
+      "organizers": "T. M. Rhyne",
       "title": "Color mapping in VIS: perspectives on optimal solutions",
       "type": "panel",
       "venue": "IEEE VIS 2017",
