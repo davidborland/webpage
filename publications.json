@@ -1,6 +1,14 @@
 {
   "publications": [
     {
+      "authors": "J. Minogue, R. Monahan, D. Borland",
+      "title": "A haptically enabled science simulation (HESS) for teaching primary students about phase change",
+      "type": "conference",
+      "venue": "2027 AERA Annual Meeting",
+      "year": 2027,
+      "info": "Accepted for presentation"
+    },
+    {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
       "title": "Conveying causality through visualization: a survey of visual causal inference",
       "type": "journal",
