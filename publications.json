@@ -6,7 +6,9 @@
       "type": "conference",
       "venue": "2027 AERA Annual Meeting",
       "year": 2027,
-      "info": "Accepted for presentation"
+      "info": "Accepted for presentation",
+      "image": "placeholder_01_tn.png",
+      "document": "placeholder_01.png"
     },
     {
       "authors": "A. Z. Wang, D. Borland, D. Gotz",
