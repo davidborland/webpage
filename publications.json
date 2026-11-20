@@ -1,5 +1,18 @@
 {
   "publications": [
+
+    {
+      "authors": "E. Chen, A. Dave, J. L. Anderson, E. Bergren, D. Borland, D. Gotz, J. Lessler, K. A. Powers, S. Truelove, C. Viboud, H. Hochheiser",
+      "title": "Design as an ingredient: applying human-centered design to improve the utility of infectious disease scenario projections for state, tribal, local, and territorial agencies",
+      "url": "https://doi.org/10.2196/108752",
+      "type": "journal",
+      "venue": "JMIR Public Health and Surveillance",
+      "year": 2026,
+      "info": "Accepted for publication",
+      "image": "accidda_drawings_01_tn.png",
+      "document": "https://preprints.jmir.org/preprint/108752/accepted"
+    },
+
     {
       "authors": "J. Minogue, R. Monahan, D. Borland",
       "title": "A haptically enabled science simulation (HESS) for teaching primary students about phase change",
